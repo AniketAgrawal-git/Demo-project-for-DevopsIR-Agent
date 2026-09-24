@@ -1,0 +1,67 @@
+{
+  "deployments": [
+    {
+      "service": "payment-service",
+      "version": "v2.4.1",
+      "timestamp": "2026-09-01T10:30:00Z",
+      "status": "successful",
+      "deployer": "ci-pipeline",
+      "commit": "a3f8c21",
+      "changelog": "Minor logging improvements and dependency updates"
+    },
+    {
+      "service": "payment-service",
+      "version": "v2.4.0",
+      "timestamp": "2026-08-15T14:20:00Z",
+      "status": "successful",
+      "deployer": "ci-pipeline",
+      "commit": "b7d2e45",
+      "changelog": "Added request ID propagation and improved error handling"
+    },
+    {
+      "service": "payment-service",
+      "version": "v2.3.2",
+      "timestamp": "2026-07-28T09:15:00Z",
+      "status": "successful",
+      "deployer": "ci-pipeline",
+      "commit": "e1c9f03",
+      "changelog": "Performance optimization for payment processing"
+    },
+    {
+      "service": "payment-service",
+      "version": "v2.3.1",
+      "timestamp": "2026-07-10T16:45:00Z",
+      "status": "rolled_back",
+      "deployer": "ci-pipeline",
+      "commit": "d4a6b78",
+      "changelog": "Database connection pooling update - rolled back due to connection leak"
+    },
+    {
+      "service": "payment-service",
+      "version": "v2.3.0",
+      "timestamp": "2026-06-25T11:00:00Z",
+      "status": "successful",
+      "deployer": "ci-pipeline",
+      "commit": "f2e8a91",
+      "changelog": "Added support for INR currency and new payment methods"
+    },
+    {
+      "service": "payment-gateway",
+      "version": "v1.2.0",
+      "timestamp": "2026-08-20T13:00:00Z",
+      "status": "successful",
+      "deployer": "ci-pipeline",
+      "commit": "c5d7f12",
+      "changelog": "Updated TLS certificates and added health check endpoint"
+    },
+    {
+      "service": "payment-gateway",
+      "version": "v1.1.0",
+      "timestamp": "2026-07-05T10:30:00Z",
+      "status": "successful",
+      "deployer": "ci-pipeline",
+      "commit": "a9b3c46",
+      "changelog": "Added structured logging and metrics endpoint"
+    }
+  ]
+}

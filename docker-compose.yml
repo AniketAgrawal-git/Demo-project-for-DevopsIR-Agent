@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  payment-gateway:
+    build:
+      context: ./payment-gateway
+      dockerfile: Dockerfile
+    container_name: payment-gateway
+    ports:
+      - "4001:4001"
+    environment:
+      - PORT=4001
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4001/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  payment-service:
+    build:
+      context: ./payment-service
+      dockerfile: Dockerfile
+    container_name: payment-service
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - GATEWAY_URL=http://payment-gateway:4001
+    depends_on:
+      payment-gateway:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - ./deployment-data:/app/deployment-data:ro
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
